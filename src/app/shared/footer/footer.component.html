@@ -1,0 +1,42 @@
+<footer
+  class="h-56 w-full mt-auto text-white"
+  [ngStyle]="{
+    'background-color': isAdmin
+      ? 'var(--warning-color)'
+      : 'var(--primary-color)'
+  }"
+>
+  <div class="flex justify-between h-full">
+    <div class="flex flex-col gap-2 h-full p-8">
+      <p>Contacto:</p>
+      <p>Telefono: +56 9 123 456 78</p>
+      <p>Correo: correo.de.ejemplo@rentcar.com</p>
+      <p>Direccion: Universidad Tarapaca Sede La Tirana</p>
+    </div>
+    <div class="h-full flex justify-end">
+      <div class="h-8 mt-auto w-full flex gap-3 pb-10">
+        <label class="font-bold">Redes sociales: </label>
+        <div class="h-6 w-6">
+          <a href="#" class="">
+            <img
+              src="../../../assets/icons/twitter-154-svgrepo-com.svg"
+              alt=""
+            />
+          </a>
+        </div>
+        <div class="h-6 w-6">
+          <a href="#">
+            <img src="../../../assets/icons/instagram-svgrepo-com.svg" alt="" />
+          </a>
+        </div>
+        <div class="h-6 w-6">
+          <a href="#"
+            ><img
+              src="https://www.figma.com/file/DCEn5xoCLtC0sDTJNEUY03/RentCar?type=design&node-id=6-257&mode=design&t=kd8UJc6GwBqPrmth-4"
+              alt=""
+          /></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
