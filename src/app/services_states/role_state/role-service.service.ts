@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class RoleServiceService {
-  private role: BehaviorSubject<string> = new BehaviorSubject('admin');
+  private role: BehaviorSubject<string> = new BehaviorSubject('user');
   constructor() {}
 
   getRole() {
