@@ -1,0 +1,7 @@
+.warning-bg {
+  background-color: var(--warning-color);
+  color: black;
+  &:hover {
+    color: white;
+  }
+}

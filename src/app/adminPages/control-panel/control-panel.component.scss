@@ -1,0 +1,6 @@
+.custom-background {
+  background-color: var(--warning-color);
+}
+.item:nth-child(even) {
+  background-color: rgba(114, 134, 211, 0.17);
+}

@@ -1,0 +1,70 @@
+<section class="mt-16 mb-16 flex justify-center h-full">
+  <div class="custom-background w-1/2 h-full rounded-s">
+    <div class="flex text-white justify-center">
+      <div class="flex flex-col gap-7 pb-12">
+        <h2 class="text-center text-3xl mt-5">
+          <strong>Arrendar como visitante</strong>
+        </h2>
+        <div class="grid grid-cols-2 grid-rows-5 gap-8">
+          <h3 class="font-bold">Modelo:</h3>
+          <p>BMW Z4 Roadster</p>
+          <h3 class="font-bold">anio:</h3>
+          <p>2023</p>
+          <h3 class="font-bold">Precio:</h3>
+          <p>$20.000.000</p>
+          <h3 class="font-bold">Km:</h3>
+          <p>345km</p>
+          <h3 class="font-bold">Color:</h3>
+          <p>Azul</p>
+        </div>
+        <hr />
+        <form *ngIf="!isUser">
+          <h2 class="text-center text-3xl mb-8">
+            <strong>Informacion de contacto</strong>
+          </h2>
+          <div class="grid grid-cols-2 grid-rows-4 gap-5">
+            <h3 class="font-bold">Nombres:</h3>
+            <input type="text" class="rounded-sm px-2 text-black font-bold" />
+            <h3 class="font-bold">Apellidos:</h3>
+            <input type="text" class="rounded-sm px-2 text-black font-bold" />
+            <h3 class="font-bold">Direccion:</h3>
+            <input type="text" class="rounded-sm px-2 text-black font-bold" />
+            <h3 class="font-bold">Tiempo en dias:</h3>
+            <input
+              type="number"
+              class="rounded-sm px-2 text-black font-bold"
+              value="1"
+            />
+          </div>
+          <div class="flex justify-center">
+            <button
+              class="bg-yellow-400 hover:bg-yellow-500 hover:text-white font-bold text-black mt-6 py-2 px-3 rounded-sm"
+            >
+              Enviar
+            </button>
+          </div>
+        </form>
+        <form *ngIf="isUser">
+          <h2 class="text-center text-3xl mb-8">
+            <strong>Informacion de arriendo</strong>
+          </h2>
+          <div class="grid grid-cols-2 grid-rows-1">
+            <h3 class="font-bold">Tiempo en dias:</h3>
+            <input
+              type="number"
+              class="rounded-sm px-2 text-black font-bold"
+              value="1"
+            />
+          </div>
+          <div class="flex justify-center">
+            <button
+              class="bg-yellow-400 hover:bg-yellow-500 hover:text-white font-bold text-black mt-6 py-2 px-3 rounded-sm"
+            >
+              Enviar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
