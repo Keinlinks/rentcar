@@ -12,9 +12,7 @@ import { PageRentVisitComponent } from './pages/page-rent-visit/page-rent-visit.
 import { PageProductComponent } from './pages/page-product/page-product.component';
 import { CardCarComponent } from './components/card-car/card-car.component';
 import { IdProductComponent } from './pages/id-product/id-product.component';
-import { ControlPanelComponent } from './adminPages/control-panel/control-panel.component';
-import { ProducrtcardAdminComponent } from './componentsAdmin/producrtcard-admin/producrtcard-admin.component';
-import { AddProductAdminComponent } from './adminPages/add-product-admin/add-product-admin.component';
+import { AuthModuleModule } from './auth/auth-module.module';
 
 @NgModule({
   declarations: [
@@ -25,9 +23,6 @@ import { AddProductAdminComponent } from './adminPages/add-product-admin/add-pro
     PageRentVisitComponent,
     PageProductComponent,
     IdProductComponent,
-    ControlPanelComponent,
-    ProducrtcardAdminComponent,
-    AddProductAdminComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,6 +30,7 @@ import { AddProductAdminComponent } from './adminPages/add-product-admin/add-pro
     SharedModule,
     HomeComponent,
     CardCarComponent,
+    AuthModuleModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

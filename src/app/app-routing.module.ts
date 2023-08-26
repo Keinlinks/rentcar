@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
-import { UserModuleModule } from './user-module/user-module.module';
+import { LoginComponent } from './auth/pages/login/login.component';
+import { RegisterComponent } from './auth/pages/register/register.component';
+import { roleGuard } from './guards/role-guard.guard';
+import { adminGuard } from './guards/admin-guard.guard';
 
 const routes: Routes = [
   {
@@ -11,6 +13,26 @@ const routes: Routes = [
         (m) => m.UserModuleModule
       ),
   },
+  {
+    path: 'admin',
+    loadChildren: () =>
+      import('./adminPages/admin-module.module').then(
+        (m) => m.AdminModuleModule
+      ),
+    canActivate: [adminGuard],
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+    canActivate: [roleGuard],
+  },
+
+  {
+    path: 'register',
+    component: RegisterComponent,
+    canActivate: [roleGuard],
+  },
+  { path: '**', redirectTo: '/' },
 ];
 
 @NgModule({
