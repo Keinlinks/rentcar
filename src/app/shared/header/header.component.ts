@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { RoleServiceService } from 'src/app/services_states/role_state/role-service.service';
 
 @Component({
@@ -8,14 +9,17 @@ import { RoleServiceService } from 'src/app/services_states/role_state/role-serv
 })
 export class HeaderComponent {
   userRole: string = 'visit';
-  constructor(private roleService: RoleServiceService) {
+  userName: string = '';
+  constructor(private roleService: RoleServiceService, private router: Router) {
     roleService.getRole().subscribe((role) => {
       if (role === 'admin') {
         this.userRole = 'admin';
+        this.userName = roleService.getUserData().name;
         return;
       }
       if (role === 'user') {
         this.userRole = 'user';
+        this.userName = roleService.getUserData().name;
         return;
       }
       if (role === 'visit') {
@@ -23,5 +27,12 @@ export class HeaderComponent {
         return;
       }
     });
+    roleService.$userData.asObservable().subscribe((data) => {
+      this.userName = data.name;
+    });
+  }
+  logout() {
+    this.roleService.logout();
+    this.router.navigateByUrl('/login');
   }
 }

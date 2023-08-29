@@ -6,6 +6,7 @@ import { UserPageComponent } from './user-page/user-page.component';
 import { SharedModule } from '../shared/shared.module';
 import { PageProductComponent } from '../pages/page-product/page-product.component';
 import { PageProfileComponent } from '../pages/page-profile/page-profile.component';
+import { profileGuard } from '../guards/profileGuard';
 const routes: Routes = [
   {
     path: '',
@@ -13,7 +14,11 @@ const routes: Routes = [
     children: [
       { path: '', component: HomeComponent },
       { path: 'products', component: PageProductComponent },
-      { path: 'profile', component: PageProfileComponent },
+      {
+        path: 'profile',
+        component: PageProfileComponent,
+        canActivate: [profileGuard],
+      },
     ],
   },
 ];

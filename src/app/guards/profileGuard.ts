@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root',
 })
-export class roleGuard implements CanActivate {
+export class profileGuard implements CanActivate {
   constructor(
     private router: Router,
     private roleService: RoleServiceService
@@ -13,9 +13,9 @@ export class roleGuard implements CanActivate {
   canActivate(): boolean {
     const role: string = this.roleService.role.getValue();
     if (role === 'admin' || role === 'user') {
-      this.canPass = false;
-    } else {
       this.canPass = true;
+    } else {
+      this.canPass = false;
     }
     if (!this.canPass) {
       this.router.navigate(['/']);

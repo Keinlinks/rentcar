@@ -1,49 +1,85 @@
-<div class="grid grid-cols-2 grid-rows-4 flex-col gap-5">
-  <div>
-    <span class="font-bold">Nombre:</span>
+<div class="grid grid-cols-2 grid-rows-5 flex-col gap-5">
+  <div class="flex">
+    <p class="standartdWidth"><span class="font-bold">Nombre:</span></p>
+
     <input
       type="text"
       class="text-black font-semibold rounded-md ml-3 px-2"
-      value="Kevin Clift"
+      [value]="userInfo.name"
+      [(ngModel)]="name"
     />
   </div>
   <div>
-    <button class="font-bold px-2 py-1 rounded-sm hover:bg-red-950 warning-bg">
+    <button
+      class="font-bold px-2 py-1 rounded-sm hover:bg-red-950 warning-bg"
+      (click)="changeProfile('name', name)"
+    >
       Cambiar
     </button>
   </div>
-  <div>
-    <span class="font-bold">Correo:</span>
+  <div class="flex">
+    <p class="standartdWidth"><span class="font-bold">Apellido:</span></p>
+
     <input
       type="text"
       class="text-black font-semibold rounded-md ml-3 px-2"
-      value="Kevin.clift.b@gmail.com"
+      [value]="userInfo.lastName"
+      [(ngModel)]="lastname"
     />
   </div>
   <div>
-    <button class="font-bold px-2 py-1 rounded-sm hover:bg-red-950 warning-bg">
+    <button
+      class="font-bold px-2 py-1 rounded-sm hover:bg-red-950 warning-bg"
+      (click)="changeProfile('lastName', lastname)"
+    >
       Cambiar
     </button>
   </div>
-  <div class="w-full">
-    <span class="font-bold">Telefono:</span>
+  <div class="flex">
+    <p class="standartdWidth"><span class="font-bold w-20">Correo:</span></p>
+
     <input
       type="text"
       class="text-black font-semibold rounded-md ml-3 px-2"
-      value="+56 9 123 456 78"
+      [value]="userInfo.email"
+      [(ngModel)]="email"
     />
   </div>
   <div>
-    <button class="font-bold px-2 py-1 rounded-sm hover:bg-red-950 warning-bg">
+    <button
+      class="font-bold px-2 py-1 rounded-sm hover:bg-red-950 warning-bg"
+      (click)="changeProfile('email', email)"
+    >
       Cambiar
     </button>
   </div>
-  <div>
-    <span class="font-bold">Direccion:</span>
+  <div class="flex">
+    <p class="standartdWidth"><span class="font-bold w-20">Celular:</span></p>
+
     <input
       type="text"
       class="text-black font-semibold rounded-md ml-3 px-2"
-      value="Universidad Tarapaca Sede La Tirana"
+      [value]="userInfo.phone"
+      [(ngModel)]="phone"
+    />
+  </div>
+  <div>
+    <button
+      class="font-bold px-2 py-1 rounded-sm hover:bg-red-950 warning-bg"
+      (click)="changeProfileNumber('phone', phone)"
+    >
+      Cambiar
+    </button>
+  </div>
+  <div class="flex">
+    <p class="standartdWidth"><span class="font-bold">Dirección:</span></p>
+
+    <input
+      type="text"
+      class="text-black font-semibold rounded-md ml-3 px-2"
+      [value]="userInfo.address"
+      [(ngModel)]="address"
+      (click)="changeProfile('address', address)"
     />
   </div>
   <div>
@@ -54,8 +90,34 @@
 </div>
 <div class="flex justify-center">
   <button
-    class="font-extrabold px-2 py-1 rounded-sm hover:bg-red-700 text-white mt-12 bg-red-800"
+    (click)="showPopup = true"
+    class="font-extrabold px-2 py-1 rounded-sm hover:bg-white hover:text-red-700 text-white mt-12 bg-red-800"
   >
     Eliminar cuenta
   </button>
+</div>
+
+<div
+  *ngIf="showPopup"
+  class="absolute top-0 left-0 h-full w-full bg-transparent"
+>
+  <div class="flex h-full w-full justify-center">
+    <div class="relative h-52 w-96 bg-slate-950 my-auto p-7 rounded-md">
+      <button
+        class="absolute right-3 top-0 font-bold text-2xl"
+        (click)="showPopup = false"
+      >
+        X
+      </button>
+      <p class="text-center font-bold text-xl">
+        Presiona confirmar para efectuar esta acción:
+      </p>
+      <button
+        (click)="deleteAcount()"
+        class="absolute bottom-5 left-28 px-6 font-bold text-white py-3 mx-auto bg-red-700 rounded-sm"
+      >
+        Eliminar cuenta
+      </button>
+    </div>
+  </div>
 </div>

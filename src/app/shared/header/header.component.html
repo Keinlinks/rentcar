@@ -9,7 +9,7 @@
     <a class="pt-7 pl-7 select-none cursor-pointer" routerLink="/">
       <h1 class="text-5xl font-extrabold text-white">Rent Car</h1>
       <h2 class="text-2xl text-white font-extrabold mt-2 ml-16">
-        Clickea y conduce!
+        ¡Clickea y conduce!
       </h2>
     </a>
     <div class="w-1/4 h-full">
@@ -21,19 +21,18 @@
           <button
             *ngIf="userRole == 'admin'"
             routerLink="/admin"
-            class="hover:bg-red-600 p-2 mt-5 text-white font-bold bg-red-700 rounded-sm"
+            class="hover:bg-red-600 p-2 mt-8 text-white font-bold bg-red-700 rounded-sm"
           >
             Panel de control
           </button>
         </div>
-        <div></div>
-        <div></div>
-        <div>
+
+        <div class="col-span-3">
           <h3
             *ngIf="userRole !== 'visit'"
-            class="font-bold text-white text-xl mt-2"
+            class="font-bold text-white text-5xl mt-7 text-center"
           >
-            Hola, Sebastian
+            Hola, {{ userName | upperCaseFirstLetter }}
           </h3>
         </div>
         <a
@@ -52,12 +51,14 @@
           class="text-center font-bold text-xl text-white mt-auto p-2 hover:text-neutral-200"
           >Perfil</a
         >
-        <a
+        <button
           *ngIf="userRole == 'user' || userRole == 'admin'"
-          href="#"
+          (click)="logout()"
+          type="button"
           class="text-center font-bold text-xl text-white mt-auto p-2 hover:text-neutral-200"
-          >Cerrar sesion</a
         >
+          Cerrar sesión
+        </button>
         <a
           *ngIf="userRole == 'visit'"
           routerLink="/register"
@@ -68,7 +69,7 @@
           *ngIf="userRole == 'visit'"
           routerLink="/login"
           class="text-center font-bold text-xl text-white mt-auto p-2 hover:text-neutral-200"
-          >Iniciar sesion</a
+          >Iniciar sesión</a
         >
       </nav>
     </div>
