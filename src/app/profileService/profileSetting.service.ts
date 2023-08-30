@@ -44,4 +44,11 @@ export class profileSettingService {
 
     return this.http.post(`${this.server}${this.port}/deleteAcount`, data);
   }
+  deleteAcountById(id: number) {
+    const data = {
+      id: id,
+    };
+
+    return this.http.post(`${this.server}${this.port}/deleteAcount`, data);
+  }
 }

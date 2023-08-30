@@ -7,6 +7,7 @@ import { AdminPageComponent } from './admin-page/admin-page.component';
 import { SharedModule } from '../shared/shared.module';
 import { ProducrtcardAdminComponent } from '../componentsAdmin/producrtcard-admin/producrtcard-admin.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UserCardComponent } from '../componentsAdmin/user-card/user-card.component';
 const routes: Routes = [
   {
     path: '',
@@ -29,6 +30,7 @@ const routes: Routes = [
     SharedModule,
     ProducrtcardAdminComponent,
     ReactiveFormsModule,
+    UserCardComponent,
   ],
 })
 export class AdminModuleModule {}

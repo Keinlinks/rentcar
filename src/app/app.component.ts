@@ -34,9 +34,7 @@ export class AppComponent {
                 return [];
               })
             )
-            .subscribe((data) => {
-              console.log('estos son los autos:', data);
-            });
+            .subscribe((data) => {});
         });
       });
   }

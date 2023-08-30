@@ -4,3 +4,42 @@
 .item:nth-child(even) {
   background-color: rgba(114, 134, 211, 0.17);
 }
+.noSelected {
+  color: rgba(156, 163, 175, 0.5);
+  transition: 0.4s ease-out;
+  &:hover {
+    scale: 1.05;
+  }
+}
+.selected {
+  color: rgba(156, 163, 175, 1);
+}
+.custom-height {
+  max-height: calc(100vh - 200px);
+}
+
+.custom-height::-webkit-scrollbar {
+  width: 14px;
+  opacity: 0.7;
+  &:hover {
+    opacity: 1;
+  }
+}
+.custom-height::-webkit-scrollbar-corner {
+  background: rgba(0, 0, 0, 0);
+}
+.custom-height::-webkit-scrollbar-thumb {
+  opacity: 0.7;
+  &:hover {
+    opacity: 1;
+  }
+  background-color: grey;
+  border-radius: 6px;
+  border: 4px solid rgba(0, 0, 0, 0);
+  background-clip: content-box;
+  min-width: 18px;
+  min-height: 18px;
+}
+.custom-height::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0);
+}

@@ -1,9 +1,28 @@
-<section class="mt-16 mb-16 flex justify-center h-full">
+<div class="mt-16 mb-16 flex justify-center h-full">
+  <div class="flex gap-16">
+    <button
+      (click)="selected = true"
+      class="font-bold text-2xl text-gray-400 noSelected"
+      [ngClass]="{ selected: selected }"
+    >
+      Vehiculos
+    </button>
+    <button
+      (click)="selected = false"
+      class="font-bold text-2xl noSelected"
+      [ngClass]="{ selected: !selected }"
+    >
+      Usuarios
+    </button>
+  </div>
+</div>
+
+<section *ngIf="selected" class="mt-16 mb-16 flex justify-center h-full">
   <div class="custom-background w-1/2 h-full rounded-s">
     <div class="flex text-white justify-center">
       <div class="flex w-full flex-col pb-12">
         <h2 class="text-center text-3xl my-6">
-          <strong>Panel de control</strong>
+          <strong>Panel de control-vehiculos</strong>
         </h2>
 
         <hr />
@@ -13,9 +32,28 @@
         >
           Agregar vehículo
         </button>
-        <div class="h-screen overflow-y-auto">
+        <div class="h-full custom-height overflow-y-auto">
           <div *ngFor="let car of allCars" class="item">
             <app-producrtcard-admin [car]="car"></app-producrtcard-admin>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section *ngIf="!selected" class="mt-16 mb-16 flex justify-center h-full">
+  <div class="custom-background w-1/2 h-full rounded-s">
+    <div class="flex text-white justify-center">
+      <div class="flex w-full flex-col pb-12">
+        <h2 class="text-center text-3xl my-6">
+          <strong>Panel de control-usuarios</strong>
+        </h2>
+
+        <hr />
+
+        <div class="custom-height overflow-y-auto">
+          <div *ngFor="let user of allUsers" class="item">
+            <app-user-card [user]="user"></app-user-card>
           </div>
         </div>
       </div>
