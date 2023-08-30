@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { filter } from 'rxjs';
+import { catchError, filter } from 'rxjs';
 import { RoleServiceService } from './services_states/role_state/role-service.service';
+import { ProductStateService } from './productService/product-state.service';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,8 @@ import { RoleServiceService } from './services_states/role_state/role-service.se
 export class AppComponent {
   constructor(
     private router: Router,
-    private roleService: RoleServiceService
+    private roleService: RoleServiceService,
+    private productService: ProductStateService
   ) {}
   title = 'rentcar';
   ngOnInit() {
@@ -24,6 +26,17 @@ export class AppComponent {
       .subscribe(() => {
         this.roleService.verifyRole().subscribe((data) => {
           this.roleService.setUserDataRole(data.userData);
+          this.productService
+            .getCars()
+            .pipe(
+              catchError((error) => {
+                console.log('ocurrio este error: ' + error);
+                return [];
+              })
+            )
+            .subscribe((data) => {
+              console.log('estos son los autos:', data);
+            });
         });
       });
   }

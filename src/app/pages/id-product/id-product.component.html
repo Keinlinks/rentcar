@@ -30,7 +30,7 @@
       <div class="flex-grow p-5 flex-custom relative">
         <div>
           <h2 class="font-bold text-3xl mb-7 text-black">
-            BMW Z4 Modelo M Deportivo
+            {{ car.model }}
           </h2>
           <p class="font-thin text-black">
             El diseño exterior e interior del BMW Z4 Roadster transmite una
@@ -42,7 +42,11 @@
             opcional como los asientos M deportivos o la luz interior.
           </p>
         </div>
+        <p class="font-bold text-black text-5xl mt-8">
+          ${{ car.price | pointNumber }}
+        </p>
         <button
+          (click)="changeRoute()"
           class="font-extrabold text-3xl text-white py-3 px-4 warning-bg absolute right-8 bottom-5 rounded-md"
         >
           ARRENDAR

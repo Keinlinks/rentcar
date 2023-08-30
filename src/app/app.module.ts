@@ -13,6 +13,7 @@ import { IdProductComponent } from './pages/id-product/id-product.component';
 import { AuthModuleModule } from './auth/auth-module.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsUserModule } from './forms/formsUser.module';
+import { PipesModule } from './pipes/pipes.module';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { FormsUserModule } from './forms/formsUser.module';
     AuthModuleModule,
     HttpClientModule,
     FormsUserModule,
+    PipesModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

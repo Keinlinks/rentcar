@@ -1,25 +1,59 @@
 <section class="mt-16 mb-16 flex justify-center h-full">
   <div class="custom-background w-1/2 h-full rounded-s">
     <div class="flex text-white justify-center">
-      <form class="flex flex-col gap-7 pb-12">
+      <form [formGroup]="addForms" class="flex flex-col gap-7 pb-12">
         <h2 class="text-center text-3xl mt-5">
           <strong>Agregar vehículo</strong>
         </h2>
         <div class="grid grid-cols-2 grid-rows-5 gap-8">
           <h3 class="font-bold">Modelo:</h3>
-          <div><input class="text-black px-2 font-bold" type="text" /></div>
+          <div>
+            <input
+              class="text-black px-2 font-bold"
+              type="text"
+              formControlName="model"
+            />
+          </div>
           <h3 class="font-bold">Año:</h3>
-          <div><input class="text-black px-2 font-bold" type="number" /></div>
+          <div>
+            <input
+              class="text-black px-2 font-bold"
+              type="number"
+              formControlName="year"
+            />
+          </div>
           <h3 class="font-bold">Precio:</h3>
-          <div><input class="text-black px-2 font-bold" type="number" /></div>
+          <div>
+            <input
+              class="text-black px-2 font-bold"
+              type="number"
+              formControlName="price"
+            />
+          </div>
           <h3 class="font-bold">Km:</h3>
-          <div><input class="text-black px-2 font-bold" type="number" /></div>
+          <div>
+            <input
+              class="text-black px-2 font-bold"
+              type="number"
+              formControlName="km"
+            />
+          </div>
           <h3 class="font-bold">Color:</h3>
-          <div><input class="text-black px-2 font-bold" type="text" /></div>
+          <div>
+            <input
+              class="text-black px-2 font-bold"
+              type="text"
+              formControlName="color"
+            />
+          </div>
         </div>
         <hr />
-        <button class="bg-gray-600 hover:bg-gray-500 rounded-md py-2">
-          Agregar
+        <button
+          (click)="submit()"
+          class="bg-gray-600 hover:bg-gray-500 rounded-md py-2 disabled:bg-gray-700"
+          [disabled]="addForms.invalid || disabledButton"
+        >
+          {{ textButton }}
         </button>
       </form>
     </div>

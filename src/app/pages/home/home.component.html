@@ -28,6 +28,7 @@
             sobre cuatro!
           </p>
           <button
+            routerLink="products/1"
             class="absolute bottom-10 px-4 py-3 rounded-md bg-blue-800 hover:bg-blue-900 text-white font-extrabold text-4xl"
           >
             ¡Arrienda YA!
@@ -122,18 +123,7 @@
     <div class="h-full w-full ml-10 flex flex-col justify-center">
       <h4 class="text-4xl text-white font-bold my-10">Ofertas</h4>
       <div class="flex h-full items-center gap-10 flex-wrap">
-        <app-card-car></app-card-car>
-        <app-card-car></app-card-car>
-        <app-card-car></app-card-car>
-        <app-card-car></app-card-car>
-        <app-card-car></app-card-car>
-        <app-card-car></app-card-car>
-        <app-card-car></app-card-car>
-        <app-card-car></app-card-car>
-        <app-card-car></app-card-car>
-        <app-card-car></app-card-car>
-        <app-card-car></app-card-car>
-        <app-card-car></app-card-car>
+        <app-card-car *ngFor="let car of allCars" [car]="car"></app-card-car>
       </div>
     </div>
   </section>

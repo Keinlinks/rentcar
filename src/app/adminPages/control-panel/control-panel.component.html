@@ -14,14 +14,8 @@
           Agregar vehículo
         </button>
         <div class="h-screen overflow-y-auto">
-          <div class="item">
-            <app-producrtcard-admin></app-producrtcard-admin>
-          </div>
-          <div class="item">
-            <app-producrtcard-admin></app-producrtcard-admin>
-          </div>
-          <div class="item">
-            <app-producrtcard-admin></app-producrtcard-admin>
+          <div *ngFor="let car of allCars" class="item">
+            <app-producrtcard-admin [car]="car"></app-producrtcard-admin>
           </div>
         </div>
       </div>

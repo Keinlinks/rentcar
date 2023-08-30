@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { SharedModule } from '../shared/shared.module';
 import { ProducrtcardAdminComponent } from '../componentsAdmin/producrtcard-admin/producrtcard-admin.component';
+import { ReactiveFormsModule } from '@angular/forms';
 const routes: Routes = [
   {
     path: '',
@@ -27,6 +28,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     SharedModule,
     ProducrtcardAdminComponent,
+    ReactiveFormsModule,
   ],
 })
 export class AdminModuleModule {}

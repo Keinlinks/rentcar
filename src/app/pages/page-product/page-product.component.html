@@ -5,19 +5,7 @@
         ¡Los mejores vehículos al mejor precio!
       </h2>
       <div class="flex gap-12 flex-wrap">
-        <app-card-car></app-card-car>
-        <app-card-car></app-card-car>
-        <app-card-car></app-card-car>
-        <app-card-car></app-card-car>
-        <app-card-car></app-card-car>
-        <app-card-car></app-card-car>
-        <app-card-car></app-card-car>
-        <app-card-car></app-card-car>
-        <app-card-car></app-card-car>
-        <app-card-car></app-card-car>
-        <app-card-car></app-card-car>
-        <app-card-car></app-card-car>
-        <app-card-car></app-card-car>
+        <app-card-car *ngFor="let car of allCars" [car]="car"></app-card-car>
       </div>
     </div>
   </div>

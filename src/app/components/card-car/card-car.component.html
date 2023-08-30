@@ -8,15 +8,20 @@
       />
     </div>
     <h4 class="text-white text-center">
-      <strong>BMW X5 COMPETITION ULTIMO MODELO</strong>
+      <strong>{{ car.model }}</strong>
     </h4>
     <div class="flex flex-col justify-center">
-      <p class="text-center line-through text-red-700 text-s">$40.000.000</p>
-      <p class="text-white text-center text-xl"><strong>$20.000.000</strong></p>
+      <p class="text-center line-through text-red-700 text-s">
+        ${{ car.price * 2 }}
+      </p>
+      <p class="text-white text-center text-xl">
+        <strong>${{ car.price }}</strong>
+      </p>
       <button
-        class="p-2 rounded-md font-bold text-white text-2xl custom-warning"
+        (click)="route()"
+        class="p-2 rounded-md font-bold text-white text-2xl mt-3 custom-warning"
       >
-        SOLO POR HOY
+        Arrienda YA
       </button>
     </div>
   </div>

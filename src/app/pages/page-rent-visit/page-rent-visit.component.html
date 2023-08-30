@@ -3,19 +3,20 @@
     <div class="flex text-white justify-center">
       <div class="flex flex-col gap-7 pb-12">
         <h2 class="text-center text-3xl mt-5">
-          <strong>Arrendar como visitante</strong>
+          <strong *ngIf="isUser">Arrendar como usuario</strong>
+          <strong *ngIf="!isUser">Arrendar como visitante</strong>
         </h2>
         <div class="grid grid-cols-2 grid-rows-5 gap-8">
           <h3 class="font-bold">Modelo:</h3>
-          <p>BMW Z4 Roadster</p>
+          <p>{{ car.model }}</p>
           <h3 class="font-bold">Año:</h3>
-          <p>2023</p>
+          <p>{{ car.year }}</p>
           <h3 class="font-bold">Precio:</h3>
-          <p>$20.000.000</p>
+          <p>${{ car.price | pointNumber }}</p>
           <h3 class="font-bold">Km:</h3>
-          <p>345km</p>
+          <p>{{ car.km }} Km</p>
           <h3 class="font-bold">Color:</h3>
-          <p>Azul</p>
+          <p>{{ car.color }}</p>
         </div>
         <hr />
         <form *ngIf="!isUser">
