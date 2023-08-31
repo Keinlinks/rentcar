@@ -5,24 +5,7 @@
         <div>
           <img
             class="custom-image h-auto object-contain"
-            src="../../../assets/carImages/12-millones-1.jpg"
-            alt=""
-          />
-        </div>
-        <div class="flex gap-3">
-          <img
-            class="thumb"
-            src="../../../assets/carImages/12-millones-1.jpg"
-            alt=""
-          />
-          <img
-            class="thumb"
-            src="../../../assets/carImages/12-millones-1.jpg"
-            alt=""
-          />
-          <img
-            class="thumb"
-            src="../../../assets/carImages/12-millones-1.jpg"
+            [src]="imgSource"
             alt=""
           />
         </div>
@@ -32,15 +15,7 @@
           <h2 class="font-bold text-3xl mb-7 text-black">
             {{ car.model }}
           </h2>
-          <p class="font-thin text-black">
-            El diseño exterior e interior del BMW Z4 Roadster transmite una
-            sensación de deportividad relajada y estética individual. Las
-            características potentes de la apariencia dinámica incluyen la
-            parrilla BMW en forma de riñón con diseño de malla, el toldo
-            elegante y los elementos de la Línea Shadow de BMW Individual. El
-            interior redondea el concepto coherente de diseño con equipamiento
-            opcional como los asientos M deportivos o la luz interior.
-          </p>
+          <p class="font-thin text-black">{{ car.description }}</p>
         </div>
         <p class="font-bold text-black text-5xl mt-8">
           ${{ car.price | pointNumber }}

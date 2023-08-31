@@ -9,8 +9,10 @@ import { ProductStateService } from 'src/app/productService/product-state.servic
   styleUrls: ['./id-product.component.scss'],
 })
 export class IdProductComponent implements OnInit {
+  imgSource: string = '';
   car: carModel = {
     id: 0,
+    description: '',
     model: '',
     year: 0,
     price: 0,
@@ -32,6 +34,7 @@ export class IdProductComponent implements OnInit {
         return car.id == +this.param_id;
       })[0];
     });
+    this.imgSource = `../../../assets/imagenes/imagenId_${this.param_id}.png`;
   }
   changeRoute() {
     this.router.navigate([`rent/${this.param_id}`]);

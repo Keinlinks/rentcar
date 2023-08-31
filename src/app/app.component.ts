@@ -37,5 +37,6 @@ export class AppComponent {
             .subscribe((data) => {});
         });
       });
+    this.productService.getCars().subscribe((data) => {});
   }
 }

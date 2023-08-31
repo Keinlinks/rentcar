@@ -11,7 +11,7 @@ export class PageProductComponent {
   allCars!: carModel[];
   constructor(private productService: ProductStateService) {
     productService.allCars.asObservable().subscribe((data) => {
-      this.allCars = data.slice(0, 10);
+      this.allCars = data.slice(0, 20);
     });
   }
 }

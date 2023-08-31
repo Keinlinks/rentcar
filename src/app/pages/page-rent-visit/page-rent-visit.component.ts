@@ -13,6 +13,7 @@ export class PageRentVisitComponent {
   isUser: boolean = true;
   car: carModel = {
     id: 0,
+    description: '',
     model: '',
     year: 0,
     price: 0,

@@ -5,6 +5,7 @@ export interface carResponse {
 
 export interface carModel {
   id: number;
+  description: string;
   model: string;
   year: number;
   price: number;
@@ -14,6 +15,7 @@ export interface carModel {
 }
 export interface carModel_Interface {
   id?: number;
+  description: string;
   model: string;
   year: number;
   price: number;

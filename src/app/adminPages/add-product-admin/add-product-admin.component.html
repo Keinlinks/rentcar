@@ -46,9 +46,18 @@
               formControlName="color"
             />
           </div>
+          <h3 class="font-bold">Descripcion:</h3>
+          <div>
+            <textarea
+              formControlName="description"
+              class="text-black px-2 font-bold h-40 resize-none"
+              type="text"
+              formControlName="description"
+            ></textarea>
+          </div>
         </div>
         <hr />
-        <input type="file" />
+        <input type="file" name="image" formControlName="image" #image />
         <button
           (click)="submit()"
           class="bg-gray-600 hover:bg-gray-500 rounded-md py-2 disabled:bg-gray-700"

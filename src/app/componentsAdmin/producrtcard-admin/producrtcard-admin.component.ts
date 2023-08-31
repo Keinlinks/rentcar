@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { carModel } from 'src/app/models/carResponse';
+import { ProductStateService } from 'src/app/productService/product-state.service';
 
 @Component({
   selector: 'app-producrtcard-admin',
@@ -15,7 +16,8 @@ export class ProducrtcardAdminComponent implements OnInit {
   state: string = 'disponible';
   stateBoolean: boolean = false;
   route: string = '';
-  constructor() {}
+  showPopup: boolean = false;
+  constructor(private productService: ProductStateService) {}
   ngOnInit() {
     if (
       this.car.currentClientId != null &&
@@ -26,5 +28,11 @@ export class ProducrtcardAdminComponent implements OnInit {
       this.stateBoolean = true;
     }
     this.route = `/products/${this.car.id}`;
+  }
+  deleteCar() {
+    this.productService.deleteCar(this.car.id).subscribe((data) => {
+      this.showPopup = false;
+      alert('El vehiculo fue eliminado de la base de datos!');
+    });
   }
 }

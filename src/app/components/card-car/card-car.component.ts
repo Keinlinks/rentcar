@@ -12,8 +12,11 @@ import { PipesModule } from 'src/app/pipes/pipes.module';
 })
 export class CardCarComponent implements OnInit {
   @Input() car!: carModel;
+  imgSource: string = '';
   constructor(private router: Router) {}
-  ngOnInit() {}
+  ngOnInit() {
+    this.imgSource = `../../../assets/imagenes/imagenId_${this.car.id}.png`;
+  }
 
   route() {
     this.router.navigate([`products/${this.car.id}`]);

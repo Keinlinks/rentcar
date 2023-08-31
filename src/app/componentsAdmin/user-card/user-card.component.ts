@@ -25,6 +25,9 @@ export class UserCardComponent {
     id: 0,
   };
   deleteAcount() {
-    this.profileService.deleteAcountById(this.user.id);
+    this.profileService.deleteAcountById(this.user.id).subscribe((data) => {
+      this.showPopup = false;
+      alert('USUARIO ELIMINADO');
+    });
   }
 }

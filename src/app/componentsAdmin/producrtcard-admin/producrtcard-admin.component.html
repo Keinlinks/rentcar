@@ -18,16 +18,41 @@
   <div class="basis-full">
     <div class="relative h-full">
       <button
-        *ngIf="stateBoolean"
+        *ngIf="!stateBoolean"
         class="absolute right-12 bottom-10 py-1 px-3 rounded-full bg-blue-400 hover:bg-blue-300"
       >
         Editar
       </button>
       <button
-        *ngIf="stateBoolean"
+        (click)="showPopup = true"
+        *ngIf="!stateBoolean"
         class="absolute bottom-10 right-36 py-1 px-3 rounded-full bg-red-800 hover:bg-red-600"
       >
         Eliminar
+      </button>
+    </div>
+  </div>
+</div>
+<div
+  *ngIf="showPopup"
+  class="absolute top-0 left-0 h-full w-full bg-transparent"
+>
+  <div class="flex h-full w-full justify-center">
+    <div class="fixed mt-56 h-52 w-96 bg-slate-950 my-auto p-7 rounded-md">
+      <button
+        class="absolute right-3 top-0 font-bold text-2xl"
+        (click)="showPopup = false"
+      >
+        X
+      </button>
+      <p class="text-center font-bold text-xl">
+        Presiona confirmar para efectuar esta acción:
+      </p>
+      <button
+        (click)="deleteCar()"
+        class="absolute bottom-5 left-28 px-6 font-bold text-white py-3 mx-auto bg-red-700 rounded-sm"
+      >
+        Eliminar cuenta
       </button>
     </div>
   </div>

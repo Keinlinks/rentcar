@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, catchError, tap, throwError } from 'rxjs';
 import {
@@ -16,6 +16,7 @@ export class ProductStateService {
   allCars: BehaviorSubject<carModel[]> = new BehaviorSubject([
     {
       id: 0,
+      description: '',
       model: '',
       year: 0,
       price: 0,
@@ -38,7 +39,17 @@ export class ProductStateService {
       })
     );
   }
-  addCar(newCar: carModel_Interface) {
-    return this.http.post(`http://localhost:3000/add_car`, newCar);
+  addCar(newCar: carModel_Interface, image: File) {
+    const formData = new FormData();
+    formData.append('image', image);
+    formData.append('json', JSON.stringify(newCar));
+
+    const headers = new HttpHeaders({ 'Content-Type': 'multipart/form-data' });
+
+    return this.http.post(`http://localhost:3000/upload`, formData);
+  }
+
+  deleteCar(id: number) {
+    return this.http.post(`http://localhost:3000/deleteCar`, { id: id });
   }
 }
