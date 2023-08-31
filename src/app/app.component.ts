@@ -30,7 +30,6 @@ export class AppComponent {
             .getCars()
             .pipe(
               catchError((error) => {
-                console.log('ocurrio este error: ' + error);
                 return [];
               })
             )

@@ -16,6 +16,7 @@ export class ProducrtcardAdminComponent implements OnInit {
   state: string = 'disponible';
   stateBoolean: boolean = false;
   route: string = '';
+  imgSource: string = '';
   showPopup: boolean = false;
   constructor(private productService: ProductStateService) {}
   ngOnInit() {
@@ -28,6 +29,7 @@ export class ProducrtcardAdminComponent implements OnInit {
       this.stateBoolean = true;
     }
     this.route = `/products/${this.car.id}`;
+    this.imgSource = `../../../assets/imagenes/imagenId_${this.car.id}.png`;
   }
   deleteCar() {
     this.productService.deleteCar(this.car.id).subscribe((data) => {
